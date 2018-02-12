@@ -1,0 +1,16 @@
+{
+  "name": "ht-drawer-nav",
+  "flat": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/maksimyurkov/ht-drawer-nav",
+  "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.8",
+    "@polymer/paper-item": "^3.0.0-pre.8",
+    "@polymer/iron-icon": "^3.0.0-pre.8",
+    "@polymer/polymer": "^3.0.0-pre.8",
+    "@polymer/iron-selector": "^3.0.0-pre.8"
+  }
+}
