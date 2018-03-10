@@ -1,11 +1,11 @@
 "use strict";
-import { LitElement, html } from "../@polymer/lit-element/lit-element.js";
-import { repeat } from "../lit-html/lib/repeat.js";
-import "../@polymer/iron-iconset-svg/iron-iconset-svg.js";
-import "../@polymer/paper-item/paper-item.js";
-import "../@polymer/paper-item/paper-icon-item.js";
-import "../@polymer/iron-icon/iron-icon.js";
-import "../@polymer/iron-selector/iron-selector.js";
+import { LitElement, html } from "@polymer/lit-element";
+import { repeat } from "lit-html/lib/repeat.js";
+import "@polymer/iron-iconset-svg";
+import "@polymer/paper-item/paper-item.js";
+import "@polymer/paper-item/paper-icon-item.js";
+import "@polymer/iron-icon";
+import "@polymer/iron-selector";
 
 class HTDrawerNav extends LitElement {
   render({ data, page }) {
