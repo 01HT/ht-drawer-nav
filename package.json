@@ -1,16 +1,15 @@
 {
   "name": "ht-drawer-nav",
-  "flat": true,
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "ht-drawer-nav.js",
   "repository": "https://github.com/maksimyurkov/ht-drawer-nav",
   "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@polymer/lit-element": "^3.0.0-pre.10",
-    "@polymer/iron-iconset-svg": "^3.0.0-pre.8",
-    "@polymer/paper-item": "^3.0.0-pre.8",
-    "@polymer/iron-icon": "^3.0.0-pre.8",
-    "@polymer/iron-selector": "^3.0.0-pre.8"
+    "@polymer/lit-element": "@next",
+    "@polymer/iron-iconset-svg": "@next",
+    "@polymer/paper-item": "@next",
+    "@polymer/iron-icon": "@next",
+    "@polymer/iron-selector": "@next"
   }
 }
