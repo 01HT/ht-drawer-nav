@@ -5,7 +5,7 @@ import "@polymer/iron-iconset-svg";
 import "@polymer/paper-item/paper-item.js";
 import "@polymer/paper-item/paper-icon-item.js";
 import "@polymer/iron-icon";
-import "@polymer/iron-selector";
+import "@polymer/iron-selector/iron-selector.js";
 
 class HTDrawerNav extends LitElement {
   render({ data, page }) {
