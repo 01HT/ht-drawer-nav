@@ -8,7 +8,7 @@ import "@polymer/iron-icon";
 import "@polymer/iron-selector/iron-selector.js";
 
 class HTDrawerNav extends LitElement {
-  render({ data, page }) {
+  _render({ data, page }) {
     return html`<style>
         :host {
             display: block;
