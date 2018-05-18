@@ -5,7 +5,6 @@ import "@polymer/iron-iconset-svg";
 import "@polymer/paper-item/paper-item.js";
 import "@polymer/paper-item/paper-icon-item.js";
 import "@polymer/iron-icon";
-import "@polymer/iron-selector/iron-selector.js";
 
 class HTDrawerNav extends LitElement {
   _render({ data, page }) {
@@ -22,12 +21,14 @@ class HTDrawerNav extends LitElement {
             outline: none;
         }
 
-        a.iron-selected paper-icon-item, a.iron-selected paper-item {
-          color: var(--accent-color);
+        paper-item, paper-icon-item {
+          color:#414549;
+          padding-left: 24px;
+          border-left: 4px solid #fff;
         }
 
-        paper-item, paper-icon-item {
-          color: var(--secondary-text-color);
+        a[active] paper-icon-item, a[active] paper-item {
+           border-left: 4px solid var(--accent-color);
         }
 
         paper-item, paper-icon-item {
@@ -45,11 +46,12 @@ class HTDrawerNav extends LitElement {
               <defs id="defs"></defs>
           </svg>
       </iron-iconset-svg>
-      <iron-selector attr-for-selected="name" selected$=${page} selectable="a">
          ${repeat(
            data,
            i => html`
-            <a name="${i.name}" href="/${i.name}">
+            <a href=${i.href} active?=${
+             i.href && i.href.startsWith(`/${page}`) ? true : false
+           }>
               ${
                 i.icon
                   ? html`<paper-icon-item>
@@ -65,7 +67,6 @@ class HTDrawerNav extends LitElement {
             </a>
           `
          )}
-      </iron-selector>
     `;
   }
 
@@ -82,11 +83,7 @@ class HTDrawerNav extends LitElement {
 
   constructor() {
     super();
-    this.data = [
-      { name: "catalog", title: "Каталог" },
-      { name: "about", title: "О сервисе" },
-      { name: "author", title: "Стать автором" }
-    ];
+    this.data = [];
   }
 
   ready() {
