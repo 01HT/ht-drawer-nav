@@ -1,10 +1,10 @@
 {
-  "name": "ht-drawer-nav",
+  "name": "@01ht/ht-drawer-nav",
   "version": "1.0.0",
   "main": "ht-drawer-nav.js",
-  "repository": "https://github.com/maksimyurkov/ht-drawer-nav",
-  "author": "maksimyurkov <yurkov.maksim.sergeevich@gmail.com>",
-  "license": "MIT",
+  "repository": "01ht/ht-drawer-nav",
+  "author": "01ht Ltd",
+  "license": "UNLICENSED",
   "dependencies": {
     "@polymer/lit-element": "^0.5.1",
     "@polymer/iron-iconset-svg": "^3.0.0-pre.18",
