@@ -1,13 +1,14 @@
 "use strict";
 import { LitElement, html } from "@polymer/lit-element";
-import { repeat } from "lit-html/lib/repeat.js";
+import { repeat } from "lit-html/directives/repeat.js";
 import "@polymer/iron-iconset-svg";
 import "@polymer/paper-item/paper-item.js";
 import "@polymer/paper-item/paper-icon-item.js";
 import "@polymer/iron-icon";
 
 class HTDrawerNav extends LitElement {
-  _render({ data, page }) {
+  render() {
+    const { data, page } = this;
     return html`<style>
         :host {
             display: block;
@@ -15,10 +16,17 @@ class HTDrawerNav extends LitElement {
             box-sizing: border-box;
         }
 
+      iron-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 4px;
+        color: var(--secondary-text-color);
+      }
+
         a {
-            text-decoration: none;
-            color: inherit;
-            outline: none;
+          text-decoration: none;
+          color: inherit;
+          outline: none;
         }
 
         paper-item, paper-icon-item {
@@ -43,13 +51,15 @@ class HTDrawerNav extends LitElement {
       </style>
       <iron-iconset-svg size="24" name="ht-drawer-nav">
           <svg>
-              <defs id="defs"></defs>
-          </svg>
+            <defs>
+                <g id="open-in-new"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path></g>
+            </defs>
+        </svg>
       </iron-iconset-svg>
          ${repeat(
            data,
            i => html`
-            <a href=${i.href} active?=${
+            <a href=${i.href} target=${i.blank ? "_blank" : ""} ?active=${
              i.href && i.href.startsWith(`/${page}`) ? true : false
            }>
               ${
@@ -61,7 +71,11 @@ class HTDrawerNav extends LitElement {
                   <span>${i.title}</span>
               </paper-icon-item>`
                   : html`<paper-item>
-                  ${i.title}
+                  ${i.title} ${
+                      i.blank
+                        ? html`<iron-icon icon="ht-toolbar-nav:open-in-new"></iron-icon>`
+                        : ``
+                    }
               </paper-item>`
               }
             </a>
@@ -76,8 +90,8 @@ class HTDrawerNav extends LitElement {
 
   static get properties() {
     return {
-      data: Array,
-      page: String
+      data: { type: Array },
+      page: { type: String }
     };
   }
 
@@ -86,8 +100,7 @@ class HTDrawerNav extends LitElement {
     this.data = [];
   }
 
-  ready() {
-    super.ready();
+  firstUpdated() {
     for (let i of this.data) {
       if (i.icon === undefined) return;
       this.$.defs.innerHTML += `<g id="${i.name}"><path d="${

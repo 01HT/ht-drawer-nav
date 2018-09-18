@@ -1,14 +1,14 @@
 {
   "name": "@01ht/ht-drawer-nav",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "ht-drawer-nav.js",
   "repository": "01ht/ht-drawer-nav",
-  "author": "01ht Ltd",
+  "author": "01HT Ltd",
   "license": "UNLICENSED",
   "dependencies": {
-    "@polymer/lit-element": "^0.5.1",
-    "@polymer/iron-iconset-svg": "^3.0.0-pre.18",
-    "@polymer/paper-item": "^3.0.0-pre.18",
-    "@polymer/iron-icon": "^3.0.0-pre.18"
+    "@polymer/lit-element": "^0.6.1",
+    "@polymer/iron-iconset-svg": "^3.0.1",
+    "@polymer/paper-item": "^3.0.1",
+    "@polymer/iron-icon": "^3.0.1"
   }
 }
