@@ -23,31 +23,32 @@ class HTDrawerNav extends LitElement {
         color: var(--secondary-text-color);
       }
 
-        a {
-          text-decoration: none;
-          color: inherit;
-          outline: none;
-        }
+      a {
+        text-decoration: none;
+        color: inherit;
+        outline: none;
+      }
 
-        paper-item, paper-icon-item {
-          color:#414549;
-          padding-left: 24px;
-          border-left: 4px solid #fff;
-        }
+      paper-item, paper-icon-item {
+        line-height: 48px;
+        color:#414549;
+        padding-left: 24px;
+        border-left: 4px solid #fff;
+      }
 
-        a[active] paper-icon-item, a[active] paper-item {
-           border-left: 4px solid var(--accent-color);
-        }
+      a[active] paper-icon-item, a[active] paper-item {
+          border-left: 4px solid var(--accent-color);
+      }
 
-        paper-item, paper-icon-item {
-            --paper-item-focused-before: {
-                background: none;
-            }
-        }
+      paper-item, paper-icon-item {
+          --paper-item-focused-before: {
+              background: none;
+          }
+      }
 
-        paper-item {
-          padding-left: 24px;
-        }
+      paper-item {
+        padding-left: 24px;
+      }
       </style>
       <iron-iconset-svg size="24" name="ht-drawer-nav">
           <svg>
