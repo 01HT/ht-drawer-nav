@@ -1,5 +1,5 @@
 "use strict";
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element";
 import { repeat } from "lit-html/directives/repeat.js";
 import "@polymer/iron-iconset-svg";
 import "@polymer/paper-item/paper-item.js";
@@ -7,49 +7,51 @@ import "@polymer/paper-item/paper-icon-item.js";
 import "@polymer/iron-icon";
 
 class HTDrawerNav extends LitElement {
+  static styles = css`<style>
+  :host {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  iron-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    color: var(--secondary-text-color);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+
+  paper-item, paper-icon-item {
+    line-height: 48px;
+    color:#414549;
+    padding-left: 24px;
+    border-left: 4px solid #fff;
+  }
+
+  a[active] paper-icon-item, a[active] paper-item {
+    border-left: 4px solid var(--accent-color);
+  }
+
+  paper-item, paper-icon-item {
+    --paper-item-focused-before: {
+        background: none;
+    }
+  }
+
+  paper-item {
+    padding-left: 24px;
+  }
+  </style>`;
+
   render() {
     const { data, page } = this;
-    return html`<style>
-        :host {
-            display: block;
-            position: relative;
-            box-sizing: border-box;
-        }
-
-      iron-icon {
-        width: 20px;
-        height: 20px;
-        margin-left: 4px;
-        color: var(--secondary-text-color);
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-        outline: none;
-      }
-
-      paper-item, paper-icon-item {
-        line-height: 48px;
-        color:#414549;
-        padding-left: 24px;
-        border-left: 4px solid #fff;
-      }
-
-      a[active] paper-icon-item, a[active] paper-item {
-          border-left: 4px solid var(--accent-color);
-      }
-
-      paper-item, paper-icon-item {
-          --paper-item-focused-before: {
-              background: none;
-          }
-      }
-
-      paper-item {
-        padding-left: 24px;
-      }
-      </style>
+    return html`
       <iron-iconset-svg size="24" name="ht-drawer-nav">
           <svg>
             <defs>
@@ -60,9 +62,9 @@ class HTDrawerNav extends LitElement {
          ${repeat(
            data,
            i => html`
-            <a href=${i.href} target=${i.blank ? "_blank" : ""} ?active=${
+            <a href="${i.href}" target="${i.blank ? "_blank" : ""}" ?active="${
              i.href && i.href.startsWith(`/${page}`) ? true : false
-           }>
+           }">
               ${
                 i.icon
                   ? html`<paper-icon-item>
@@ -83,10 +85,6 @@ class HTDrawerNav extends LitElement {
           `
          )}
     `;
-  }
-
-  static get is() {
-    return "ht-drawer-nav";
   }
 
   static get properties() {
@@ -111,4 +109,4 @@ class HTDrawerNav extends LitElement {
   }
 }
 
-customElements.define(HTDrawerNav.is, HTDrawerNav);
+customElements.define("ht-drawer-nav", HTDrawerNav);
