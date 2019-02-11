@@ -6,48 +6,52 @@ import "@polymer/paper-item/paper-item.js";
 import "@polymer/paper-item/paper-icon-item.js";
 import "@polymer/iron-icon";
 
+import { stylesBasicWebcomponents } from "@01ht/ht-theme/styles";
+
 class HTDrawerNav extends LitElement {
-  static styles = css`<style>
-  :host {
-    display: block;
-    position: relative;
-    box-sizing: border-box;
-  }
+  static get styles() {
+    return [
+      stylesBasicWebcomponents,
+      css`
+        iron-icon {
+          width: 20px;
+          height: 20px;
+          margin-left: 4px;
+          color: var(--secondary-text-color);
+        }
 
-  iron-icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 4px;
-    color: var(--secondary-text-color);
-  }
+        a {
+          text-decoration: none;
+          color: inherit;
+          outline: none;
+        }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-    outline: none;
-  }
+        paper-item,
+        paper-icon-item {
+          line-height: 48px;
+          color: #414549;
+          padding-left: 24px;
+          border-left: 4px solid #fff;
+        }
 
-  paper-item, paper-icon-item {
-    line-height: 48px;
-    color:#414549;
-    padding-left: 24px;
-    border-left: 4px solid #fff;
-  }
+        a[active] paper-icon-item,
+        a[active] paper-item {
+          border-left: 4px solid var(--accent-color);
+        }
 
-  a[active] paper-icon-item, a[active] paper-item {
-    border-left: 4px solid var(--accent-color);
-  }
+        paper-item,
+        paper-icon-item {
+          --paper-item-focused-before: {
+            background: none;
+          }
+        }
 
-  paper-item, paper-icon-item {
-    --paper-item-focused-before: {
-        background: none;
-    }
+        paper-item {
+          padding-left: 24px;
+        }
+      `
+    ];
   }
-
-  paper-item {
-    padding-left: 24px;
-  }
-  </style>`;
 
   render() {
     const { data, page } = this;
